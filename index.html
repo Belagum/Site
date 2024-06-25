@@ -9,7 +9,7 @@
             font-family: Arial, sans-serif;
             margin: 20px;
         }
-        .download-button, .upload-button {
+        .download-button {
             margin-top: 20px;
             padding: 10px 20px;
             background-color: #4CAF50;
@@ -26,15 +26,7 @@
     <p><strong>Размер монитора:</strong> <span id="screen-size">Загрузка...</span></p>
     <p><strong>Размер окна браузера:</strong> <span id="window-size">Загрузка...</span></p>
 
-    <form action="upload.php" method="post" enctype="multipart/form-data">
-        <label for="fileToUpload">Выберите файл для загрузки:</label>
-        <input type="file" name="fileToUpload" id="fileToUpload">
-        <input type="submit" value="Загрузить файл" class="upload-button">
-    </form>
-
-    <p>
-        <a id="download-link" href="#" class="download-button" style="display:none;">Скачать файл</a>
-    </p>
+    <a href="uploads/example.txt" download class="download-button">Скачать файл</a>
     
     <script src="script.js"></script>
 </body>
