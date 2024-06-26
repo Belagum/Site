@@ -9,15 +9,15 @@
             font-family: Arial, sans-serif;
             margin: 20px;
         }
-        .download-link {
-            display: block;
-            margin-top: 10px;
-            padding: 10px;
+        .download-button {
+            margin-top: 20px;
+            padding: 10px 20px;
             background-color: #4CAF50;
             color: white;
             text-decoration: none;
             border-radius: 5px;
-            width: fit-content;
+            display: inline-block;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -27,29 +27,18 @@
     <p><strong>Размер монитора:</strong> <span id="screen-size">Загрузка...</span></p>
     <p><strong>Размер окна браузера:</strong> <span id="window-size">Загрузка...</span></p>
 
-    <h2>Доступные файлы для скачивания:</h2>
-    <div id="file-list">
-        <!-- Список файлов будет добавлен здесь -->
-    </div>
+    <div class="download-button" onclick="downloadFile()">Скачать изображение</div>
     
     <script src="script.js"></script>
     <script>
-        const files = [
-            'image.png',
-            'example.txt'
-            // Добавьте сюда имена всех файлов в папке uploads
-        ];
-
-        const fileList = document.getElementById('file-list');
-
-        files.forEach(file => {
+        function downloadFile() {
             const link = document.createElement('a');
-            link.href = `uploads/${file}`;
-            link.download = file;
-            link.className = 'download-link';
-            link.textContent = `Скачать ${file}`;
-            fileList.appendChild(link);
-        });
+            link.href = 'uploads/image.png';
+            link.download = 'image.png';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
     </script>
 </body>
 </html>
