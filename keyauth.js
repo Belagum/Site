@@ -5,9 +5,9 @@ document.getElementById('register-form').addEventListener('submit', function(eve
     const password = document.getElementById('password').value;
 
     const keyAuthApp = {
-        name: "your_app_name",
-        ownerId: "your_owner_id",
-        secret: "your_app_secret",
+        name: "12",
+        ownerId: "n8shnhqmPc",
+        secret: "975f8d25e4084b42adae80cdb330bba9ea6d0340c40e60311577447ed352f5af",
         version: "1.0"
     };
 
