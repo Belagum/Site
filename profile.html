@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .info-container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        .info-container p {
+            font-size: 18px;
+        }
+        .info-container button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Профиль</h1>
+    <div class="info-container">
+        <p><strong>Ваш IP:</strong> <span id="ip-address">Загрузка...</span></p>
+        <p><strong>Ваш HWID:</strong> <span id="hwid">Загрузка...</span></p>
+        <p><strong>Статус:</strong> <span id="status">Загрузка...</span></p>
+        <button id="reset-hwid">Запросить сброс HWID</button>
+    </div>
+    <script src="profile.js"></script>
+</body>
+</html>
