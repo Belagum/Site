@@ -3,6 +3,7 @@ document.getElementById('register-form').addEventListener('submit', function(eve
 
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
+    const licenseKey = document.getElementById('license-key').value;
 
     const KeyAuthApp = new KeyAuth(
     "12", // Application Name
@@ -10,7 +11,6 @@ document.getElementById('register-form').addEventListener('submit', function(eve
     "975f8d25e4084b42adae80cdb330bba9ea6d0340c40e60311577447ed352f5af", // Application Secret
     "1.0", // Application Version
     );
-
 
     fetch('https://keyauth.win/api/1.0/register/', {
         method: 'POST',
@@ -20,7 +20,7 @@ document.getElementById('register-form').addEventListener('submit', function(eve
         body: JSON.stringify({
             username: username,
             password: password,
-            key: "your_license_key", // Замените на нужный ключ
+            key: licenseKey,
             hwid: "none",
             appname: keyAuthApp.name,
             ownerid: keyAuthApp.ownerId,
