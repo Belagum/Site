@@ -8,17 +8,11 @@ const KeyAuthApp = {
 document.getElementById('register-form').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    console.log('Форма отправлена');
-
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
     const licenseKey = document.getElementById('license-key').value;
 
-    console.log('username:', username);
-    console.log('password:', password);
-    console.log('licenseKey:', licenseKey);
-
-    fetch('https://keyauth.win/api/1.0/register/', {
+    fetch('http://localhost:3000/register', { // Измените URL на ваш серверный URL
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -27,11 +21,6 @@ document.getElementById('register-form').addEventListener('submit', function(eve
             username: username,
             password: password,
             key: licenseKey,
-            hwid: "none",
-            appname: KeyAuthApp.name,
-            ownerid: KeyAuthApp.ownerId,
-            secret: KeyAuthApp.secret,
-            version: KeyAuthApp.version
         }),
     })
     .then(response => response.json())
