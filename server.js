@@ -6,11 +6,11 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
-app.use(express.static('public')); // Это для раздачи статических файлов
+app.use(express.static('public'));
 
 app.post('/register', async (req, res) => {
     const { username, password, licenseKey } = req.body;
-    const hwid = ''; // Укажите HWID, если требуется
+    const hwid = '';
 
     try {
         const response = await fetch('https://keyauth.win/api/1.0/register/', {
