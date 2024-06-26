@@ -5,9 +5,9 @@ document.getElementById('register-form').addEventListener('submit', function(eve
     const password = document.getElementById('password').value;
 
     const keyAuthApp = {
-        name: "12",
-        ownerId: "n8shnhqmPc",
-        secret: "975f8d25e4084b42adae80cdb330bba9ea6d0340c40e60311577447ed352f5af",
+        name: "your_app_name",
+        ownerId: "your_owner_id",
+        secret: "your_app_secret",
         version: "1.0"
     };
 
@@ -30,7 +30,9 @@ document.getElementById('register-form').addEventListener('submit', function(eve
     .then(response => response.json())
     .then(data => {
         if (data.success) {
-            alert('Регистрация успешна!');
+            localStorage.setItem('username', username);
+            localStorage.setItem('password', password);
+            window.location.href = 'profile.html';
         } else {
             alert('Ошибка: ' + data.message);
         }
