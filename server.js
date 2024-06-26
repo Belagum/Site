@@ -1,37 +1,38 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const fetch = require('node-fetch');
-const cors = require('cors');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 
-app.use(cors());
-app.use(express.json());
+app.use(bodyParser.json());
+app.use(express.static('public')); // Это для раздачи статических файлов
 
 app.post('/register', async (req, res) => {
-    const { username, password, key } = req.body;
+    const { username, password, licenseKey } = req.body;
+    const hwid = ''; // Укажите HWID, если требуется
 
-    const response = await fetch('https://keyauth.win/api/1.0/register/', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            username: username,
-            password: password,
-            key: key,
-            hwid: "none",
-            appname: "your_app_name",
-            ownerid: "your_owner_id",
-            secret: "your_app_secret",
-            version: "1.0"
-        }),
-    });
+    try {
+        const response = await fetch('https://keyauth.win/api/1.0/register/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                username,
+                password,
+                license: licenseKey,
+                hwid
+            })
+        });
 
-    const data = await response.json();
-    res.json(data);
+        const data = await response.json();
+        res.status(response.status).json(data);
+    } catch (error) {
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
 });
 
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+app.listen(port, () => {
+    console.log(`Server is running on http://localhost:${port}`);
 });
