@@ -2,13 +2,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const username = localStorage.getItem('username');
     const password = localStorage.getItem('password');
 
-    const KeyAuthApp = new KeyAuth(
+    const keyAuthApp = {
     "12", // Application Name
     "n8shnhqmPc", // Owner ID
     "975f8d25e4084b42adae80cdb330bba9ea6d0340c40e60311577447ed352f5af", // Application Secret
     "1.0", // Application Version
-    );
-
+    };
 
     fetch('https://keyauth.win/api/1.0/userinfo/', {
         method: 'POST',
